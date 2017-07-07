@@ -1113,6 +1113,15 @@ private:
 	static void cb_loadbang(flext_hdr *c);
 
 #if FLEXT_SYS == FLEXT_SYS_MAX
+
+#ifndef Point
+	struct Point {
+		short               v;
+		short               h;
+	};
+	typedef struct Point Point;
+#endif // !Point
+
 	char **indesc,**outdesc;
 
 	static void cb_assist(flext_hdr *c,void *b,long msg,long arg,char *s);

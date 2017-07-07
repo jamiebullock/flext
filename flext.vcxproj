@@ -598,7 +598,7 @@
       <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
       <AdditionalIncludeDirectories>$(MAXSDKPATH)\max-includes;$(MAXSDKPATH)\msp-includes;$(PTHREADSINC);$(STK_INC);$(SNDOBJ_INC);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NDEBUG;_WIN32_WINNT=0x501;_LIB;FLEXT_SYS=1;FLEXT_USE_SIMD;FLEXT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MAXAPI_USE_MSCRT;NDEBUG;_WIN32_WINNT=0x501;_LIB;FLEXT_SYS=1;FLEXT_USE_SIMD;FLEXT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
