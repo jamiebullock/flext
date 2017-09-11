@@ -22,7 +22,8 @@ WARRANTIES, see the file, "license.txt," in this distribution.
     #if FLEXT_OSAPI != FLEXT_OSAPI_MAC_MACH
         #include <MacMemory.h>
     #else
-        #include <Carbon/Carbon.h>
+//        #include <Carbon/Carbon.h>
+        #undef FLEXT_OS_MAC
     #endif
 #endif
 
