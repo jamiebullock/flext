@@ -56,3 +56,15 @@ source/Makefile
 source/Makefile.in
 aclocal.m4
 m4/
+
+# Visual Studio generated files
+.vs
+*.VC.db
+*-msvc
+*.sbr
+*.tlog
+*.pdb
+*.log
+
+# Vim
+*.swp 
