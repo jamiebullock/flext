@@ -31,28 +31,28 @@ WARRANTIES, see the file, "license.txt," in this distribution.
 
 FLEXT_TEMPIMPL(void FLEXT_CLASSDEF(flext))::CopyMem(void *dst,const void *src,int bytes)
 {
-#if FLEXT_OS == FLEXT_OS_WIN
-    MoveMemory(dst,src,bytes);
-#elif FLEXT_OS == FLEXT_OS_MAC && !defined(__LP64__)
-    BlockMoveData(src,dst,bytes);   // not available for 64 bits
-#else
+//#if FLEXT_OS == FLEXT_OS_WIN
+//    MoveMemory(dst,src,bytes);
+//#elif FLEXT_OS == FLEXT_OS_MAC && !defined(__LP64__)
+//    BlockMoveData(src,dst,bytes);   // not available for 64 bits
+//#else
     memmove(dst,src,bytes);
-#endif
+//#endif
 }
 
 FLEXT_TEMPIMPL(void FLEXT_CLASSDEF(flext))::ZeroMem(void *dst,int bytes)
 {
-#if FLEXT_OS == FLEXT_OS_WIN
-    ZeroMemory(dst,bytes);
-#elif FLEXT_OS == FLEXT_OS_MAC
-#   ifdef __LP64__  // 64 bits compilation
-    bzero(dst,bytes);
-#   else
-    BlockZero(dst,bytes);
-#   endif
-#else
+//#if FLEXT_OS == FLEXT_OS_WIN
+//    ZeroMemory(dst,bytes);
+//#elif FLEXT_OS == FLEXT_OS_MAC
+//#   ifdef __LP64__  // 64 bits compilation
+//    bzero(dst,bytes);
+//#   else
+//    BlockZero(dst,bytes);
+//#   endif
+//#else
     memset(dst,0,bytes);
-#endif
+//#endif
 }
 
 #include "flpopns.h"
