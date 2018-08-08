@@ -358,9 +358,9 @@
       <Optimization>Disabled</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>$(PDPATH)\src;$(PTHREADSINC);$(STK_INC);$(SNDOBJ_INC);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_DEBUG;_LIB;FLEXT_SYS=2;FLEXT_THREADS;FLEXT_USE_SIMD;FLEXT_EXPORTS;xFLEXT_ATTRHIDE;xFLEXT_NOATTREDIT;_WIN32_WINNT=0x501;FLEXT_USE_CMEM;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_LIB;FLEXT_SYS=2;FLEXT_THREADS;FLEXT_USE_SIMD;FLEXT_EXPORTS;xFLEXT_ATTRHIDE;xFLEXT_NOATTREDIT;HAVE_STRUCT_TIMESPEC;_WIN32_WINNT=0x501;FLEXT_USE_CMEM;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>
