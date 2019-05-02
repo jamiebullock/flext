@@ -27,11 +27,10 @@
 #ifndef __LOCKFREE_STACK_HPP
 #define __LOCKFREE_STACK_HPP
 
-#include "cas.hpp"
-#include "atomic_ptr.hpp"
 #include "branch_hints.hpp"
 
 #include <memory>  // for std::allocator
+#include <atomic>
 
 #if HAVE_BOOST
 #   include <boost/type_traits.hpp>
@@ -50,8 +49,8 @@ namespace lockfree
     public:
         stack_node(): next(NULL) {}
     
-    private:
-        atomic_ptr<stack_node> next;
+    //private:
+        std::atomic<stack_node *> next;
     };
 
     //! intrusive lock-free stack implementation with T being the node type (inherited from stack_node)
@@ -68,28 +67,34 @@ namespace lockfree
             assert(empty());
         }
 
-        bool empty() const { return !head.getPtr(); }
+        bool empty() const { return !head.load(); }
 
         void push(T *node) 
         {
-            assert(!node->next.getPtr());
-            while(unlikely(!head.CAS(node->next = head,node)));
+            assert(!node->next.load());
+            for(;;) {
+                stack_node *current = head.load();
+                node->next.store(current);
+                if(unlikely(!head.compare_exchange_weak(current, node))) {
+                    break;
+                }
+            }
         }
 
         T *pop() 
         {
             for(;;) {
-                atomic_ptr<stack_node> current(head);
-                T *node = static_cast<T *>(current.getPtr());
-                if(!node || likely(head.CAS(current,node->next.getPtr()))) {
-                    if(node) node->next.setPtr(NULL);
-                    return node;
+                stack_node *node = head.load();
+                stack_node *next = node->next.load();
+                if(!node || likely(head.compare_exchange_weak(node, next))) {
+                    if(node) node->next.store(NULL);
+                    return static_cast<T *>(node);
                 }
             }
         }
   
     private:
-        atomic_ptr<stack_node> head;
+        std::atomic<stack_node *> head;
     };
 
 

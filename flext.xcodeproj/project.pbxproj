@@ -380,8 +380,8 @@
 		E99749BE07705CC400206F68 /* libflext-max_sd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libflext-max_sd.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9974BC407705F1400206F68 /* libflext-max_td.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libflext-max_td.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9974BFA07705F4F00206F68 /* libflext-max_d.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libflext-max_d.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9974E140770780D00206F68 /* MaxAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MaxAPI.framework; path = /Library/Frameworks/MaxAPI.framework; sourceTree = "<absolute>"; };
-		E9974E150770780D00206F68 /* MaxAudioAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MaxAudioAPI.framework; path = /Library/Frameworks/MaxAudioAPI.framework; sourceTree = "<absolute>"; };
+		E9974E140770780D00206F68 /* MaxAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MaxAPI.framework; path = "../../build/macosx/max-sdk-7.1.0/source/c74support/max-includes/MaxAPI.framework"; sourceTree = SOURCE_ROOT; };
+		E9974E150770780D00206F68 /* MaxAudioAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MaxAudioAPI.framework; path = "../../build/macosx/max-sdk-7.1.0/source/c74support/msp-includes/MaxAudioAPI.framework"; sourceTree = SOURCE_ROOT; };
 		E99A3D8B0D35903A00E692EF /* atomic_int.hpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.h; path = atomic_int.hpp; sourceTree = "<group>"; };
 		E99A3D8C0D35903A00E692EF /* atomic_ptr.hpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.h; path = atomic_ptr.hpp; sourceTree = "<group>"; };
 		E99A3D8D0D35903A00E692EF /* branch_hints.hpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.h; path = branch_hints.hpp; sourceTree = "<group>"; };
@@ -1459,6 +1459,7 @@
 					"-Wno-four-char-constants",
 					"-Wno-unknown-pragmas",
 				);
+				maxsdk = "../../build/macosx/max-sdk-7.1.0/source/c74support";
 			};
 			name = Development;
 		};

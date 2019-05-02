@@ -32,6 +32,8 @@
 #   include <pthread.h>
 #endif
 
+#include <atomic>
+
 namespace lockfree
 {
     inline void memory_barrier()
@@ -63,12 +65,16 @@ namespace lockfree
         assert((size_t(addr)&3) == 0);  // a runtime check only for debug mode is somehow insufficient....
         return InterlockedCompareExchange(addr,nw,old) == old;
 #elif defined(__APPLE__) && (MAC_OS_X_VERSION_MIN_REQUIRED >= MAC_OS_X_VERSION_10_4)
-        if(sizeof(D) == 4)
-            return OSAtomicCompareAndSwap32(old,nw,addr);
-        else if(sizeof(D) == 8)
-            return OSAtomicCompareAndSwap64(old,nw,addr);
-        else
-            assert(false);
+        //std::atomic_compare_exchange_weak((std::atomic<C>*)addr, &old_val, new_val
+//        if(sizeof(D) == 4)
+//            return OSAtomicCompareAndSwap32(old,nw,addr);
+//        else if(sizeof(D) == 8)
+//            return OSAtomicCompareAndSwap64(old,nw,addr);
+//        else
+//            assert(false);
+        
+        
+        
 #elif defined(AO_HAVE_compare_and_swap_full)
         return AO_compare_and_swap_full(reinterpret_cast<volatile AO_t*>(addr),
             reinterpret_cast<AO_t>(old),

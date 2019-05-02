@@ -25,10 +25,10 @@
 #ifndef __LOCKFREE_ATOMIC_PTR_HPP
 #define __LOCKFREE_ATOMIC_PTR_HPP
 
-#include "cas.hpp"
 #include "branch_hints.hpp"
 
 #include <cstddef>
+#include <atomic>
 
 namespace lockfree
 {
@@ -40,6 +40,7 @@ namespace lockfree
     public:
         atomic_ptr() {}
 
+       // atomic_ptr(T *p) : ptr(p), tag(0) {}
         atomic_ptr(const atomic_ptr &p): ptr(p.ptr),tag(p.tag) {}
 
         atomic_ptr(T *p,size_t t = 0): ptr(p),tag(t) {}
@@ -49,9 +50,9 @@ namespace lockfree
         {
             for (;;)
             {
-                atomic_ptr current(ptr, tag);
+//                atomic_ptr current(ptr, tag);
 
-                if(likely(CAS(current, p)))
+//                if(likely(ptr.compare_exchange_weak(current.ptr, p.ptr)))
                     return *this;
             }
         }
@@ -72,11 +73,11 @@ namespace lockfree
         inline void setPtr(T * p) { ptr = p; }
 
 
-        inline size_t getTag() const { return tag; }
-
-        inline void setTag(size_t t) { tag = t; }
-
-        inline size_t incTag() { return ++tag; }
+//        inline size_t getTag() const { return tag; }
+//
+//        inline void setTag(size_t t) { tag = t; }
+//
+//        inline size_t incTag() { return ++tag; }
 
 
         inline bool CAS(const atomic_ptr &oldval,const atomic_ptr &newval)
@@ -95,6 +96,8 @@ namespace lockfree
         }
 
     protected:
+        
+//        std::atomic<T *> ptr;
         T * volatile ptr;
         size_t volatile tag;
     };

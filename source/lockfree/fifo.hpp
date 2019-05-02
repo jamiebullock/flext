@@ -31,8 +31,8 @@
 #ifndef __LOCKFREE_FIFO_HPP
 #define __LOCKFREE_FIFO_HPP
 
-#include "cas.hpp"
-#include "atomic_ptr.hpp"
+//#include "cas.hpp"
+//#include "atomic_ptr.hpp"
 #include "branch_hints.hpp"
 
 #ifdef HAVE_BOOST
@@ -46,12 +46,13 @@
 #endif /* HAVE_BOOST */
 
 #include <memory>
+#include <atomic>
 
 namespace lockfree
 {
     struct intrusive_fifo_node;
 
-    typedef atomic_ptr<intrusive_fifo_node> intrusive_fifo_ptr_t;
+    typedef std::atomic<intrusive_fifo_node *> intrusive_fifo_ptr_t;
 
     struct intrusive_fifo_node
     {
@@ -86,50 +87,53 @@ namespace lockfree
         intrusive_fifo(void)
         {
             /* dummy pointer for head/tail */
-            intrusive_fifo_node * dummy = new intrusive_fifo_node();
-            dummy->next(NULL,0);
-            head_(dummy,0);
-            tail_(dummy,0);
+            intrusive_fifo_node *dummy = new intrusive_fifo_node();
+            dummy->next.store(nullptr);
+            head_.store(dummy);
+            tail_.store(dummy);
         }
 
         ~intrusive_fifo(void)
         {
             /* client must have freed all members already */
             assert (empty());
-            delete head_.getPtr();
+            delete head_.load();
         }
 
         bool empty() const
         {
-            return head_.getPtr() == tail_.getPtr() || (!tail_.getPtr());
+            return head_.load() == tail_.load() || (!tail_.load());
         }
 
         void enqueue(T * instance)
         {
-            /* volatile */ intrusive_fifo_node * node = static_cast<fifo_node*>(instance)->node;
-            node->next.setPtr(NULL);
+            intrusive_fifo_node * node = static_cast<fifo_node*>(instance)->node;
+            node->next.store(nullptr);
             node->data = static_cast<fifo_node*>(instance);
 
             for (;;)
             {
-                intrusive_fifo_ptr_t tail(tail_);
-                memory_barrier();
+                intrusive_fifo_ptr_t tail(tail_.load());
+                std::atomic_thread_fence(std::memory_order_seq_cst);
 
-                intrusive_fifo_ptr_t next(tail.getPtr()->next);
-                memory_barrier();
+                intrusive_fifo_ptr_t next(tail.load()->next.load());
+                std::atomic_thread_fence(std::memory_order_seq_cst);
 
                 if (likely(tail == tail_))
                 {
-                    if (next.getPtr() == 0)
+                    auto *n = next.load();
+                    auto *t = tail.load();
+                    
+                    if (n == nullptr)
                     {
-                        if (tail.getPtr()->next.CAS(next,node))
+                        if (t->next.compare_exchange_weak(n,node))
                         {
-                            tail_.CAS(tail,node);
+                            tail_.compare_exchange_weak(t,node);
                             return;
                         }
                     }
                     else
-                        tail_.CAS(tail,next);
+                        tail_.compare_exchange_weak(t,n);
                 }
             }
         }
@@ -139,27 +143,29 @@ namespace lockfree
             T * ret;
             for (;;)
             {
-                intrusive_fifo_ptr_t head(head_);
-                memory_barrier();
+                intrusive_fifo_ptr_t head(head_.load());
+                std::atomic_thread_fence(std::memory_order_seq_cst);
 
-                intrusive_fifo_ptr_t tail(tail_);
-                /* volatile */ intrusive_fifo_node * next = head.getPtr()->next.getPtr();
-                memory_barrier();
+                intrusive_fifo_ptr_t tail(tail_.load());
+                /* volatile */ intrusive_fifo_node * next = head.load()->next.load();
+                std::atomic_thread_fence(std::memory_order_seq_cst);
 
                 if (likely(head == head_))
                 {
-                    if (head.getPtr() == tail.getPtr())
+                    auto *h = head.load();
+                    auto *t = tail.load();
+                    if (h == t)
                     {
-                        if (next == 0)
+                        if (next == nullptr)
                             return 0;
-                        tail_.CAS(tail,next);
+                        tail_.compare_exchange_weak(t,next);
                     }
                     else
                     {
                         ret = static_cast<T*>(next->data);
-                        if (head_.CAS(head,next))
+                        if (head_.compare_exchange_weak(h,next))
                         {
-                            ret->node = head.getPtr();
+                            ret->node = h;
                             return ret;
                         }
                     }
