@@ -61,3 +61,4 @@ m4/
 *.swp 
 /flext.vcxproj.user
 x64/Max Debug
+x64/Max Release
