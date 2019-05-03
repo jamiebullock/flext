@@ -585,7 +585,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>c:\programme\audio\pd\src;f:\prog\audio\sndobj\include;f:\prog\audio\stk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_DEBUG;_LIB;FLEXT_SYS_PD;FLEXT_THREADS;FLEXT_USE_SIMD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_LIB;FLEXT_SYS_PD;FLEXT_THREADS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -599,7 +599,7 @@
       <CompileAs>Default</CompileAs>
     </ClCompile>
     <Lib>
-      <OutputFile>pd-msvc/flext_tdl-pdwin.lib</OutputFile>
+      <OutputFile>pd-msvc/x64/flext_tdl-pdwin.lib</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Lib>
     <ResourceCompile>
@@ -639,7 +639,7 @@
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>c:\_pd_\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NDEBUG;_LIB;FLEXT_SYS=2;FLEXT_THREADS;FLEXT_USE_SIMD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_LIB;FLEXT_SYS=2;FLEXT_THREADS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -653,7 +653,7 @@
       <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Lib>
-      <OutputFile>pd-msvc/flext_tl-pdwin.lib</OutputFile>
+      <OutputFile>pd-msvc/x64/flext_tl-pdwin.lib</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Lib>
     <ResourceCompile>
@@ -694,10 +694,10 @@
       <Optimization>Disabled</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>$(PDPATH)\src;$(PTHREADSINC);$(STK_INC);$(SNDOBJ_INC);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_DEBUG;_LIB;FLEXT_SYS=2;FLEXT_THREADS;FLEXT_USE_SIMD;FLEXT_EXPORTS;xFLEXT_ATTRHIDE;xFLEXT_NOATTREDIT;HAVE_STRUCT_TIMESPEC;_WIN32_WINNT=0x501;FLEXT_USE_CMEM;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_LIB;FLEXT_SYS=2;FLEXT_THREADS;FLEXT_EXPORTS;FLEXT_ATTRHIDE;FLEXT_NOATTREDIT;HAVE_STRUCT_TIMESPEC;_WIN32_WINNT=0x501;FLEXT_USE_CMEM;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>
       </PrecompiledHeader>
@@ -709,7 +709,7 @@
       <CompileAs>Default</CompileAs>
     </ClCompile>
     <Lib>
-      <OutputFile>pd-msvc/flext-pd_td.lib</OutputFile>
+      <OutputFile>pd-msvc/x64/flext-pd_td.lib</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Lib>
     <ResourceCompile>
@@ -751,7 +751,7 @@
       <Optimization>Disabled</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>$(PDPATH)\src;$(PTHREADSINC);$(STK_INC);$(SNDOBJ_INC);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_DEBUG;_LIB;FLEXT_SYS=2;FLEXT_USE_SIMD;FLEXT_EXPORTS;xFLEXT_DEBUGMEM;_WIN32_WINNT=0x501;WIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_LIB;FLEXT_SYS=2;FLEXT_EXPORTS;FLEXT_DEBUGMEM;_WIN32_WINNT=0x501;WIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -764,10 +764,10 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <CompileAs>Default</CompileAs>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
     </ClCompile>
     <Lib>
-      <OutputFile>pd-msvc/flext-pd_sd.lib</OutputFile>
+      <OutputFile>pd-msvc/x64/flext-pd_sd.lib</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Lib>
     <ResourceCompile>
@@ -809,7 +809,7 @@
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>$(PDPATH)\src;$(PTHREADSINC);$(STK_INC);$(SNDOBJ_INC);C:\Program Files %28x86%29\Microsoft Visual Studio 14.0\VC\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NDEBUG;_LIB;FLEXT_SYS=2;HAVE_STRUCT_TIMESPEC;FLEXT_THREADS;FLEXT_USE_SIMD;FLEXT_USE_CMEM;FLEXT_EXPORTS;_WIN32_WINNT=0x501;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_LIB;FLEXT_SYS=2;HAVE_STRUCT_TIMESPEC;FLEXT_THREADS;FLEXT_USE_CMEM;FLEXT_EXPORTS;_WIN32_WINNT=0x501;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -821,11 +821,11 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <CompileAs>Default</CompileAs>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Lib>
-      <OutputFile>pd-msvc/flext-pd_t.lib</OutputFile>
+      <OutputFile>pd-msvc/x64/flext-pd_t.lib</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Lib>
     <ResourceCompile>
@@ -869,7 +869,7 @@
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>$(PDPATH)\src;$(PTHREADSINC);$(STK_INC);$(SNDOBJ_INC);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NDEBUG;_LIB;FLEXT_SYS=2;FLEXT_USE_SIMD;FLEXT_EXPORTS;_WIN32_WINNT=0x501;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_LIB;FLEXT_SYS=2;FLEXT_EXPORTS;_WIN32_WINNT=0x501;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -881,11 +881,11 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <CompileAs>Default</CompileAs>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Lib>
-      <OutputFile>pd-msvc/flext-pd_s.lib</OutputFile>
+      <OutputFile>pd-msvc/x64/flext-pd_s.lib</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Lib>
     <ResourceCompile>
@@ -929,7 +929,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(PDPATH)\src;$(PTHREADSINC);$(STK_INC);$(SNDOBJ_INC);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_DEBUG;_LIB;FLEXT_SYS_PD;FLEXT_THREADS;FLEXT_USE_SIMD;FLEXT_SHARED;FLEXT_EXPORTS;FLEXT_PDLOCK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_LIB;FLEXT_SYS_PD;FLEXT_THREADS;FLEXT_SHARED;FLEXT_EXPORTS;FLEXT_PDLOCK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -941,11 +941,11 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <CompileAs>Default</CompileAs>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
     </ClCompile>
     <Link>
       <AdditionalDependencies>pd.lib;pthreadVC.lib;$(STK_LIB);$(SNDOBJ_LIB);%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\pd-msvc\flext-pd_d.dll</OutputFile>
+      <OutputFile>.\pd-msvc\x64\flext-pd_d.dll</OutputFile>
       <AdditionalLibraryDirectories>$(PDPATH)\bin;$(PTHREADSLIB);$(STK_LIB);$(SNDOBJ_LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OptimizeReferences>false</OptimizeReferences>
@@ -999,10 +999,10 @@
       <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
       <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft Visual Studio 14.0\VC\include;$(PDPATH)\src;$(PTHREADSINC);$(STK_INC);$(SNDOBJ_INC);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NDEBUG;_LIB;FLEXT_SYS_PD;HAVE_STRUCT_TIMESPEC;FLEXT_USE_SIMD;FLEXT_SHARED;FLEXT_EXPORTS;FLEXT_PDLOCK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_LIB;FLEXT_SYS_PD;HAVE_STRUCT_TIMESPEC;FLEXT_SHARED;FLEXT_EXPORTS;FLEXT_PDLOCK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>
       </PrecompiledHeader>
@@ -1016,7 +1016,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>pd.lib;pthreadVC.lib;$(STK_LIB);$(SNDOBJ_LIB);%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\pd-msvc\flext-pd.dll</OutputFile>
+      <OutputFile>.\pd-msvc\x64\flext-pd.dll</OutputFile>
       <AdditionalLibraryDirectories>$(PDPATH)\bin;$(PTHREADS_LIB);$(STK_LIB);$(SNDOBJ_LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <OptimizeReferences>false</OptimizeReferences>
@@ -1063,10 +1063,10 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(MAXSDKPATH)\max-includes;$(MAXSDKPATH)\msp-includes;$(PTHREADSINC);$(STK_INC);$(SNDOBJ_INC);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_DEBUG;_WIN32_WINNT=0x501;_LIB;FLEXT_SYS=1;FLEXT_USE_SIMD;FLEXT_SHARED;FLEXT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_WIN32_WINNT=0x501;_LIB;FLEXT_SYS=1;FLEXT_SHARED;FLEXT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <StructMemberAlignment>2Bytes</StructMemberAlignment>
+      <StructMemberAlignment>Default</StructMemberAlignment>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>
       </PrecompiledHeader>
@@ -1076,11 +1076,11 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <CompileAs>Default</CompileAs>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
     </ClCompile>
     <Link>
       <AdditionalDependencies>maxapi.lib;maxaudio.lib;$(PTHREADSLIB);$(STK_LIB);$(SNDOBJ_LIB);%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\max-msvc\flext-max_d.dll</OutputFile>
+      <OutputFile>.\max-msvc\x64\flext-max_d.dll</OutputFile>
       <AdditionalLibraryDirectories>$(PTHREADSLIB);$(MAXSDKPATH)\max-includes;$(MAXSDKPATH)\msp-includes;$(STK_LIB);$(SNDOBJ_LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OptimizeReferences>false</OptimizeReferences>
@@ -1136,12 +1136,12 @@
       <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
       <AdditionalIncludeDirectories>$(MAXSDKPATH)\max-includes;$(MAXSDKPATH)\msp-includes;$(PTHREADSINC);$(STK_INC);$(SNDOBJ_INC);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NDEBUG;_WIN32_WINNT=0x501;_LIB;FLEXT_SYS=1;FLEXT_USE_SIMD;FLEXT_SHARED;FLEXT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_WIN32_WINNT=0x501;_LIB;FLEXT_SYS=1;FLEXT_SHARED;FLEXT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>Sync</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <StructMemberAlignment>2Bytes</StructMemberAlignment>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <StructMemberAlignment>Default</StructMemberAlignment>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>
       </PrecompiledHeader>
@@ -1155,7 +1155,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>maxapi.lib;maxaudio.lib;$(PTHREADSLIB);$(STK_LIB);$(SNDOBJ_LIB);%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\max-msvc\flext-max.dll</OutputFile>
+      <OutputFile>.\max-msvc\x64\flext-max.dll</OutputFile>
       <AdditionalLibraryDirectories>$(PTHREADSLIB);$(MAXSDKPATH)\max-includes;$(MAXSDKPATH)\msp-includes;$(STK_LIB);$(SNDOBJ_LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -1207,13 +1207,13 @@
       <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
       <AdditionalIncludeDirectories>$(MAXSDKPATH)\max-includes;$(MAXSDKPATH)\msp-includes;$(PTHREADSINC);$(STK_INC);$(SNDOBJ_INC);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>MAXAPI_USE_MSCRT;NDEBUG;_WIN32_WINNT=0x501;_LIB;FLEXT_SYS=1;FLEXT_USE_SIMD;FLEXT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MAXAPI_USE_MSCRT;NDEBUG;_WIN32_WINNT=0x501;_LIB;FLEXT_SYS=1;FLEXT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <StructMemberAlignment>2Bytes</StructMemberAlignment>
+      <StructMemberAlignment>Default</StructMemberAlignment>
       <BufferSecurityCheck>false</BufferSecurityCheck>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>
       </PrecompiledHeader>
@@ -1226,7 +1226,7 @@
       <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Lib>
-      <OutputFile>max-msvc/flext-max_s.lib</OutputFile>
+      <OutputFile>max-msvc/x64/flext-max_s.lib</OutputFile>
     </Lib>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1276,7 +1276,7 @@
       <StringPooling>false</StringPooling>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <StructMemberAlignment>Default</StructMemberAlignment>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>
       </PrecompiledHeader>
@@ -1288,7 +1288,7 @@
       <CompileAs>Default</CompileAs>
     </ClCompile>
     <Lib>
-      <OutputFile>max-msvc/flext-max_sd.lib</OutputFile>
+      <OutputFile>max-msvc/x64/flext-max_sd.lib</OutputFile>
     </Lib>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1331,10 +1331,10 @@
       <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
       <AdditionalIncludeDirectories>$(MAXSDKPATH)\max-includes;$(MAXSDKPATH)\msp-includes;$(PTHREADSINC);$(STK_INC);$(SNDOBJ_INC);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_DEBUG;_WIN32_WINNT=0x501;_LIB;FLEXT_SYS=1;FLEXT_USE_SIMD;FLEXT_THREADS;FLEXT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_WIN32_WINNT=0x501;_LIB;FLEXT_SYS=1;FLEXT_THREADS;FLEXT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>
       </PrecompiledHeader>
@@ -1346,7 +1346,7 @@
       <CompileAs>Default</CompileAs>
     </ClCompile>
     <Lib>
-      <OutputFile>max-msvc/flext-max_td.lib</OutputFile>
+      <OutputFile>max-msvc/x64/flext-max_td.lib</OutputFile>
     </Lib>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1390,10 +1390,10 @@
       <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
       <AdditionalIncludeDirectories>$(MAXSDKPATH)\max-includes;$(MAXSDKPATH)\msp-includes;$(PTHREADSINC);$(STK_INC);$(SNDOBJ_INC);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NDEBUG;_WIN32_WINNT=0x501;_LIB;FLEXT_SYS=1;FLEXT_USE_SIMD;FLEXT_THREADS;FLEXT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_WIN32_WINNT=0x501;_LIB;FLEXT_SYS=1;FLEXT_THREADS;FLEXT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>
       </PrecompiledHeader>
@@ -1406,7 +1406,7 @@
       <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Lib>
-      <OutputFile>max-msvc/flext-max_t.lib</OutputFile>
+      <OutputFile>max-msvc/x64/flext-max_t.lib</OutputFile>
     </Lib>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1447,7 +1447,7 @@
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>$(prereq)\pthreads\include;$(pdmax)\pd\src;$(prereq)\sndobj\include;$(prereq)\stk\include;C:\data\nova\libs\lockfree;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_DEBUG;_LIB;FLEXT_SYS_PD;FLEXT_THREADS;FLEXT_USE_SIMD;FLEXT_EXPORTS;xFLEXT_ATTRHIDE;xFLEXT_NOATTREDIT;_WIN32_WINNT=0x501;xFLEXT_USECMEM;FLEXT_QMODE=2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_LIB;FLEXT_SYS_PD;FLEXT_THREADS;FLEXT_EXPORTS;xFLEXT_ATTRHIDE;xFLEXT_NOATTREDIT;_WIN32_WINNT=0x501;xFLEXT_USECMEM;FLEXT_QMODE=2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -1461,7 +1461,7 @@
       <CompileAs>Default</CompileAs>
     </ClCompile>
     <Lib>
-      <OutputFile>pd-msvc/flext-pd_td_l.lib</OutputFile>
+      <OutputFile>pd-msvc/x64/flext-pd_td_l.lib</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Lib>
     <ResourceCompile>

@@ -100,7 +100,7 @@ typedef t_clock t_qelem;
 /* -------------- Max/MSP ------------------- */
 
 // 2-byte alignment for Max/MSP structures
-#ifdef _MSC_VER
+#if defined(_MSC_VER) && defined(WIN32)
 #pragma pack(push,flext_maxsdk)
 #pragma pack(2)
 #endif
@@ -207,7 +207,7 @@ typedef void t_binbuf;
 #define critical_exit(N)
 #endif
 
-#ifdef _MSC_VER
+#if defined(_MSC_VER) && defined(WIN32)
 #pragma pack(pop,flext_maxsdk)
 #endif
 
